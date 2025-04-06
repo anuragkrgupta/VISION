@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="apple-touch-icon" href="/data/logo.png">
+    <link rel="manifest" href="/app.json">
+ 
+    
+    <title>VISION</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- welcome page started------------------------------------------------------------- -->
+    <section class="index-page" id="indexpage">
+      <div class="animation-container">
+        <div class="animation">
+          <img src="/data/vision gif.gif" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <script  src="/js/index.js"></script>
+    <script> 
+      if (!navigator.serviceWorker.controller) {
+          navigator.serviceWorker.register("/sw.js").then(function(reg) {
+              console.log("Service worker has been registered for scope: " + reg.scope);
+          });
+      } 
+      </script>
+   
+  </body>
+</html>
