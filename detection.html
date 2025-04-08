@@ -28,7 +28,7 @@
         <div id="locationDetails">address</div>
 
         <section  class="video-container" >
-            <canvas id="canvas"></canvas>
+           <div class="canvasbox"> <canvas id="canvas"   ></canvas></div>
         </section>
 
      </section>
@@ -37,16 +37,13 @@
       <!-- Loading indicator for voice recognition -->
     <div id="loadingIndicator" style="display:none;">Listening...</div>
 
-   <!-- TensorFlow.js Core -->
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
+    <!-- Load TensorFlow.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
 
-<!-- COCO-SSD Model -->
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.2/dist/coco-ssd.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest"></script>
-
-    <script src="/js/location.js"></script>
-    <script src="js/test.js"></script>
+    
+    <script src="/js/voice-location.js"></script>
+    <script src="js/testing.js"></script>
 
  
 </body>
