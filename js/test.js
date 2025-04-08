@@ -1,3 +1,4 @@
+import { FilesetResolver, ObjectDetector } from '@mediapipe/tasks-vision';
 // test.js
 const video = document.getElementById("video");
 const canvas = document.getElementById("canvas");
@@ -78,7 +79,7 @@ function detectObjects(model) {
 
             ctx.font = "16px Arial";
             ctx.fillStyle = "green";
-            ctx.fillText(`${pred.class}`, X, y - 5);
+            ctx.fillText(`${pred.class}`, X, y -5);
         });
 
         if (depthEstimationModel) {
@@ -118,6 +119,7 @@ function speak(text) {
     if (!text.trim()) return;
     const utter = new SpeechSynthesisUtterance(text);
     isSpeaking = true;
+    console.log(speak)
     utter.onend = () => {
         isSpeaking = false;
     };
