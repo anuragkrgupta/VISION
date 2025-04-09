@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>VISION</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+    <!-- Optional internal style for layout fixes -->
+    <style>
+
+        #loadingIndicator {
+            position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            z-index: 20;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <section id="mainpage">
+        <div class="navbar">
+            <div id="flipcamra">
+                <i class="bx bx-camera"></i>
+            </div>
+            <div class="appname">VISION</div>
+            <div class="loction" id="locationBtn">
+                <i class="bx bx-microphone-off"></i>
+            </div>
+        </div>
+
+        <!-- Address display (optional) -->
+        <div id="locationDetails">address</div>
+
+        <!-- Video + Canvas -->
+        <section class="video-container">
+            <video id="video" autoplay muted playsinline></video>
+            <canvas id="canvas"></canvas>
+            <div id="loadingIndicator">Loading models...</div>
+        </section>
+    </section>
+
+    <!-- TensorFlow.js Core -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
+
+    <!-- COCO-SSD Model -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.2/dist/coco-ssd.min.js"></script>
+
+    <!-- Optional: Location Script -->
+    <script src="/js/location.js"></script>
+
+    <!-- Your Custom Detection Script -->
+    <script type="module" src="js/test.js"></script>
+</body>
+</html>
