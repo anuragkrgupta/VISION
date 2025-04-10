@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const btn = document.getElementById("aboutPage");
 btn.addEventListener("dblclick", function () {
   // console.log("clicked");
-  window.location.href = "test_detection.html";
+  window.location.href = "detection.html";
 });
 
 screen.orientation.lock('portrait').catch(function(error) {
