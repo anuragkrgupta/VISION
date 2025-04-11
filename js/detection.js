@@ -63,7 +63,7 @@ async function detectObjects(model) {
         // Clear the canvas before drawing
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Remove the mirror effect by directly drawing the video
+        // drawing the video
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
         
         // Object detection
