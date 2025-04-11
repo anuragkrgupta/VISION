@@ -63,9 +63,9 @@ async function detectObjects(model) {
         // Clear the canvas before drawing
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Mirror effect for video
+        // Remove the mirror effect by directly drawing the video
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
+        
         // Object detection
         const predictions = await model.detect(video);
         const currentDetectedObjects = {};
@@ -77,10 +77,10 @@ async function detectObjects(model) {
             ctx.strokeStyle = "green";
             ctx.lineWidth = 2;
             ctx.strokeRect(
-                canvas.width - prediction.bbox[0] - prediction.bbox[2],
-                prediction.bbox[1],
-                prediction.bbox[2],
-                prediction.bbox[3]
+                prediction.bbox[0], // Use the original x-coordinate
+                prediction.bbox[1], // Use the original y-coordinate
+                prediction.bbox[2], // Width
+                prediction.bbox[3]  // Height
             );
 
             // Draw label
@@ -88,8 +88,8 @@ async function detectObjects(model) {
             ctx.font = "16px Arial";
             ctx.fillText(
                 objectName,
-                canvas.width - prediction.bbox[0] - prediction.bbox[2],
-                prediction.bbox[1] - 5
+                prediction.bbox[0], // Use the original x-coordinate
+                prediction.bbox[1] - 5 // Slightly above the bounding box
             );
 
             // Track current detected objects
