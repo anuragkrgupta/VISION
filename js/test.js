@@ -1,5 +1,6 @@
-import { FilesetResolver, ObjectDetector } from '@mediapipe/tasks-vision';
-import { loadMediaPipeDepth, estimateDepth } from './depth.js';
+import * as cocoSsd from "https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.2/dist/coco-ssd.min.js";
+import { loadMiDaS } from './miDas.js';
+import { estimateDepth } from './depth.js';
 
 const video = document.getElementById("video");
 const canvas = document.getElementById("canvas");
@@ -9,6 +10,7 @@ const loadingIndicator = document.getElementById("loadingIndicator");
 let lastSpokenObject = "";
 let isSpeaking = false;
 let speechEnabled = true;
+
 
 // Start camera
 async function startCamera() {
@@ -80,10 +82,10 @@ function speak(text) {
 }
 
 // Init
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", async () => {
     loadingIndicator.textContent = "Loading models...";
     loadingIndicator.style.display = "block";
     startCamera();
-    loadMediaPipeDepth();
-    loadModel();
+    await loadMiDaS(); // Load MiDaS model
+    loadModel(); // Start object detection
 });
